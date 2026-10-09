@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Linter cache
+.ruff_cache/
+
+# macOS
+.DS_Store
+
+# Demo runtime state (regenerated on each run; not source)
+acme-financial/logs/agent_activity.log
+acme-financial/logs/access_state.json
+
+# Local environment (real secrets/keys). The demo's SYNTHETIC acme-financial
+# .env files are intentionally committed, so this is scoped to the repo root
+# only — do NOT change to a blanket ".env".
+/.env

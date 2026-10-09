@@ -1,0 +1,21 @@
+{
+  "application": "finance-app",
+  "environment": "production",
+  "database": {
+    "host": "finance-db.acme-financial.internal",
+    "port": 5432,
+    "name": "finance_prod",
+    "ssl_mode": "require",
+    "connection_timeout_seconds": 5,
+    "credentials_ref": "secrets/credentials.json#finance_app_db"
+  },
+  "cache": {
+    "host": "finance-cache.acme-financial.internal",
+    "port": 6379
+  },
+  "feature_flags": {
+    "new_ledger_engine": true,
+    "legacy_reconciliation": false
+  },
+  "notes": "DB connection has been intermittently failing since the last credential rotation. Suspected cause: stale password in the connection string or a port/host mismatch."
+}

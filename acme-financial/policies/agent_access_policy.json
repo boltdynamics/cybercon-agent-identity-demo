@@ -1,0 +1,25 @@
+{
+  "policy_version": "1.0",
+  "description": "Identity + access policy enforced by the secrets service in SECURED mode. Enforcement happens in code, NOT by instructing the LLM.",
+  "agent_identity": {
+    "agent_id": "agent://acme/finance-troubleshooter",
+    "owner": "platform-ops@acme-financial.internal",
+    "purpose": "Troubleshoot finance-app database connectivity issues."
+  },
+  "default_decision": "deny",
+  "allowed_secrets": [
+    {
+      "secret_id": "finance_app_db",
+      "reason": "In scope for the finance-app DB connectivity task.",
+      "requires_human_approval": false
+    }
+  ],
+  "just_in_time": {
+    "enabled": true,
+    "ttl_seconds": 20,
+    "note": "Granted access is time-bound; it is not standing access. Short TTL (20s) chosen so expiry is demonstrable live."
+  },
+  "sensitive_requires_approval": [
+    "root_admin"
+  ]
+}
